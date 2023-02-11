@@ -70,7 +70,7 @@ export default function App() {
 	}, [reload]);
 
 	return (
-		<div className='App'>
+		<div className= {chosen ? 'App dark' : 'App'}>
 			<div className='hero'>
 				<h1>Poke list</h1>
 				<p>Choose your Pokemon Ash!</p>

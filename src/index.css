@@ -150,16 +150,6 @@
 	color: #fff;
 	overflow-y: auto;
 }
-.chosen:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 120%;
-	background-color: rgba(0, 0, 0, 0.95);
-	z-index: -1;
-}
 
 .chosen img {
 	width: 100%;
@@ -226,6 +216,20 @@
 .ability {
 	margin-left: 3em;
 }
+.dark {
+	position: relative;
+}
+.dark::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.95);
+	z-index: 5;
+}
+
 @keyframes turn-left {
 	from {
 		transform: rotate(0);
@@ -246,7 +250,7 @@
 	}
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
 	.fa-circle-xmark {
 		font-size: 2rem;
 		top: 10%;
@@ -263,8 +267,5 @@
 	.chosen .details p,
 	.chosen .details h3 {
 		font-size: 1rem;
-	}
-	.chosen:after {
-		height: 100%;
 	}
 }
