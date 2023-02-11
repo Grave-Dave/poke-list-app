@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,400&family=Press+Start+2P&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.App {
+	font-family: sans-serif;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	min-height: 100vh;
+	background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.hero {
+	position: relative;
+	padding: 2em;
+	background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1493&q=80');
+	height: 200px;
+	color: #fff;
+	object-fit: cover;
+	font-family: 'Press Start 2P', cursive;
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+	z-index: 0;
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
+
+.hero h1 {
+	margin-bottom: 1em;
+}
+
+.hero-btn {
+	margin: 1.5em;
+}
+
+.poke1,
+.poke2 {
+	position: absolute;
+	width: 50px;
+	bottom: 10%;
+}
+
+.poke1 {
+	left: 10%;
+	animation: turn-right 7s infinite linear;
+}
+
+.poke2 {
+	right: 10%;
+	animation: turn-left 7s infinite linear;
+}
+
+.poke-list {
+	padding: 2em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	justify-content: center;
+	list-style: none;
+}
+.list-item {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	max-width: 280px;
+}
+.list-item h3 {
+	height: 30px;
+	font-family: 'Press Start 2P', cursive;
+}
+
+.list-item img {
+	margin: 1em 0 1.7em;
+	max-width: 245px;
+	height: 337px;
+	object-fit: cover;
+	filter: drop-shadow(0 0 5px #000);
+}
+.list-item button,
+.hero-btn {
+	position: relative;
+	padding: 1em 2em;
+	border-radius: 7px;
+	border: none;
+	/* border: 1px solid rgba(0, 0, 0, 0.85); */
+	background-color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	box-shadow: 0 0 7px #000;
+	cursor: pointer;
+	z-index: 1;
+	transition: color 0.2s, transform 0.2s, box-shadow 0.2s;
+	overflow: hidden;
+}
+.list-item button::after,
+.hero-btn::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: scaleY(0);
+	transform-origin: top;
+	/* border-bottom: 3px solid #000; */
+	background-color: rgba(255, 0, 0, 0.6);
+	z-index: -1;
+	transition: transform 0.2s;
+}
+.list-item button:hover::after,
+.hero-btn:hover::after {
+	transform: scaleY(1);
+}
+.list-item button:hover,
+.hero-btn:hover {
+	color: #fff;
+	text-shadow: 0 0 3px #000;
+	transform: scale(1.03);
+	box-shadow: 0 0 18px #000;
+}
+.list-item button {
+	max-width: 245px;
+}
+
+.chosen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2em;
+	justify-content: center;
+	align-items: center;
+	padding: 2em;
+	z-index: 10;
+	color: #fff;
+	overflow-y: auto;
+}
+.chosen:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+	background-color: rgba(0, 0, 0, 0.95);
+	z-index: -1;
+}
+
+.chosen img {
+	width: 100%;
+	max-width: 200px;
+	height: 276px;
+	object-fit: contain;
+}
+
+.chosen .details {
+	position: relative;
+	padding: 2em 4em;
+	text-align: left;
+	background-image: url(https://cdn.pixabay.com/photo/2016/07/23/13/21/pokemon-1536855_960_720.png);
+	background-position: center;
+	border-radius: 25%;
+	overflow: hidden;
+	background-size: cover;
+	z-index: 0;
+	text-shadow: 0 0 5px #000;
+}
+.chosen .details::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.85);
+	z-index: -1;
+}
+.chosen .details h1 {
+	padding: 0.3em;
+	font-size: 1.3rem;
+	border-bottom: 2px solid #fff;
+	text-align: center;
+}
+.chosen .details p,
+.chosen .details h3 {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	padding: 1em 0;
+	font-weight: bold;
+}
+.chosen .details p span {
+	padding: 1em 0;
+	font-weight: normal;
+}
+.chosen .details i {
+	padding-right: 0.5em;
+}
+
+.fa-circle-xmark {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	font-size: 1.4rem;
+	cursor: pointer;
+	transition: transform 0.5s;
+	z-index: 10;
+}
+.fa-circle-xmark:hover {
+	transform: rotate(180deg);
+}
+.ability {
+	margin-left: 3em;
+}
+@keyframes turn-left {
+	from {
+		transform: rotate(0);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes turn-right {
+	from {
+		transform: rotate(0);
+	}
+
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+@media (min-width: 576px) {
+	.fa-circle-xmark {
+		font-size: 2rem;
+		top: 10%;
+		right: 10%;
+	}
+	.chosen img {
+		width: 100%;
+		max-width: 400px;
+		height: 552px;
+	}
+	.chosen .details h1 {
+		font-size: 1.8rem;
+	}
+	.chosen .details p,
+	.chosen .details h3 {
+		font-size: 1rem;
+	}
+	.chosen:after {
+		height: 100%;
+	}
+}
